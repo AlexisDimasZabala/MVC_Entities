@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MVC_Entities.Models.alumnocls>
+
+@{
+    ViewBag.Title = "ListadoAlumnoCLS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListadoAlumnoCLS</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_alumno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.domicilio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_ciudad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_alumno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.domicilio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_alumno }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_alumno }) |
+            @Html.ActionLink("Delete", "Delete", new {id=item.id_alumno })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<MVC_Entities.Models.alumno>
+
+@{
+    ViewBag.Title = "Lista de alumnos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar alumno", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_alumno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.domicilio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_ciudad)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_alumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.domicilio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_ciudad)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.id_alumno }) |
+                @Html.ActionLink("Detalles", "Detalle", new { id = item.id_alumno }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.id_alumno }, new { onclick = "return confirm('Esta seguro de borrarlo?');" })
+
+            </td>
+        </tr>
+    }
+</table>
+
+<script type="text/javascript">
+    //Html.ActionLink("Eliminar", "Eliminar", new { id = item.id_alumno }, new { onclick = "return Consulta();", id = item.id_alumno })
+    function Consulta() {
+        if (confirm("Estas seguro de borrar este alumno?")) {
+                return true;
+                //document.getElementById(item.id_alumno).href += "?isTrue=true";
+        } else
+        {
+            return false;
+                document.getElementById(item.id_alumno).href += "?isTrue=false";
+        }
+            //return true;
+        }
+</script>
+
